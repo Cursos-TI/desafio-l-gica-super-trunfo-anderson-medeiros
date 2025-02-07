@@ -14,7 +14,25 @@ int main() {
     float c1_pib, c2_pib;
     float c1_pibPerCapita, c2_pibPerCapita;
     int c1_pontosTuristicos, c2_pontosTuristicos;
+    int opcao;
+    //
+    // Limpar a tela e posiciona o cursor na primeira linha
+    printf("\033[2J\033[H");
 
+    // Menu de seleção de propriedade da carta
+    puts(" CADASTRO DE CARTAS              ");
+    puts("                                 ");
+    puts(" N  PROPRIEDADE                  ");
+    puts("─────────────────────────────────");
+    puts("(0) População                    ");
+    puts("(1) Área                         ");
+    puts("(2) Densidade Populacional       ");
+    puts("(3) PIB                          ");
+    puts("(4) PIB per capita               ");
+    puts("(5) Pontos Turísticos            ");
+
+    printf("\nOPÇÃO (N): ");
+    scanf("%d", &opcao);
     
     // Cadastro das Cartas:
     
@@ -22,7 +40,7 @@ int main() {
     printf("\033[2J\033[H");
 
     // Tabela para exibição dos dados
-    puts("        CADASTRO DE CARTAS        ");
+    puts("CADASTRO DE CARTAS                ");
     puts("                                  ");
     puts("DADOS                  │          ");
     puts("───────────────────────┼──────────");
@@ -114,19 +132,56 @@ int main() {
     printf("\033[2J\033[H");
 
 
-    // Comparação de Cartas:
-    char cidadeVencedora[20];
+    switch (opcao) {
+        case 0:
+            if (c1_populacao > c2_populacao) {
+                puts("Carta 1 venceu.");
+            } else {
+                puts("Carta 2 venceu.");
+            }
 
-     if (c1_populacao > c2_populacao) {
-         printf("Cidade 1 tem maior população.\n");
-         strcpy(cidadeVencedora, c1_cidade);
-     } else {
-         printf("Cidade 2 tem maior população.\n");
-         strcpy(cidadeVencedora, c2_cidade);
-     }
+            break;
+        case 1:
+            if (c1_area > c2_area) {
+                puts("Carta 1 venceu.");
+            } else {
+                puts("Carta 2 venceu.");
+            }
 
-    // Exibição dos Resultados:
-     printf("A cidade vencedora é: %s\n", cidadeVencedora);
+            break;
+        case 2:
+            if (c1_densidadePopulacional < c2_densidadePopulacional) {
+                puts("Carta 1 venceu.");
+            } else {
+                puts("Carta 2 venceu.");
+            }
+
+            break;
+        case 3:
+            if (c1_pib > c2_pib) {
+                puts("Carta 1 venceu.");
+            } else {
+                puts("Carta 2 venceu.");
+            }
+
+            break;
+        case 4:
+            if (c1_pibPerCapita > c2_pibPerCapita) {
+                puts("Carta 1 venceu.");
+            } else {
+                puts("Carta 2 venceu.");
+            }
+            
+            break;
+        case 5:
+            if (c1_pontosTuristicos > c2_pontosTuristicos) {
+                puts("Carta 1 venceu.");
+            } else {
+                puts("Carta 2 venceu.");
+            }
+
+            break;
+    }
 
     return 0;
 }
